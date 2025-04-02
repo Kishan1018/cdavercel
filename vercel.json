@@ -1,11 +1,15 @@
 {
-  "functions": {
-    "api/app.py": {
-      "runtime": "@vercel/python"
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/app.py",
+      "use": "@vercel/python"
     }
-  },
+  ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api/app.py" },
-    { "src": "/(.*)", "dest": "/static/index.html" }
+    {
+      "src": "/(.*)",
+      "dest": "/api/app.py"
+    }
   ]
 }
